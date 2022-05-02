@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&display=swap');
+
 :root{
     --main-color: #FCA600;
     --whtie-color: white;
@@ -42,8 +43,12 @@ img{
 .content-title{
     font-size: 42px;
     color: var(--whtie-color);
-    font-weight: 900;
+    font-weight: 800;
     padding-bottom: 25px;
+}
+
+.text-background{
+    background-color: var(--main-color);
 }
 
 .button{
@@ -83,10 +88,11 @@ header{
 }
 
 .header-inner .nav{
-    width: 50%;
+    width: 55%;
     display: flex;
     justify-content: space-between;
-    font-size: 24px;
+    align-items: center;
+    font-size: 22px;
     font-weight: 800;
     padding-left: 10%;
 }
@@ -100,12 +106,19 @@ header{
 
 .main{
     width: 100%;
-    height: 1080px;
+    height: 100vh;
     margin: 0 auto;
 }
 
-.main .slide .content01 video{
+.main .content01{
+    height: 1080px;
+}
+
+.main .content01 video{
     position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .main .content01 p{
@@ -118,7 +131,7 @@ header{
 
 .community{
     width: 100%;
-    height: 1080px;
+    height: 100vh;
     background-image: url(img/01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -126,7 +139,7 @@ header{
 }
 
 .sub-title{
-    font-size: 54px;
+    font-size: 50px;
     padding-bottom: 45px;
     font-weight: 900;
 }
@@ -143,15 +156,9 @@ header{
     line-height: 55px;
 }
 
-.community .community-inner .background{
-    width: 480px;
-    height: 50px;
-    background-color: var(--main-color);
-}
-
 .sharing{
     width: 100%;
-    height: 1080px;
+    height: 100vh;
     background-image: url(img/02.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -160,10 +167,9 @@ header{
 
 .sharing .sharing-inner{
     position: absolute;
-    top: 30%;
+    top: 40%;
     right: 10%;
     color: var(--whtie-color);
-
 }
 
 .sharing .sharing-inner p{
@@ -172,19 +178,13 @@ header{
     text-align: right;
 }
 
-.sharing .sharing-inner .background{
-    width: 450px;
-    height: 50px;
-    background-color: var(--main-color);
-}
-
-
 .popular{
     width: 100%;
-    height: 1080px;
+    height: 100vh;
     background-image: url(img/03.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
 }
 
 .popular-inner{
@@ -192,13 +192,27 @@ header{
     align-items: center;
     justify-content: space-between;
     position: relative;
+    width: 100%;
 }
 
-
+.content-text{
+    padding-left: 100px;
+}
 
 .content-text p{
     color: var(--whtie-color);
     font-size: 26px;
+    line-height: 45px;
+}
+
+.content-text .more a{
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--main-color);
+}
+
+.content-text .more{
+    padding-top: 50px;
 }
 
 .content-sliderbox{
@@ -206,6 +220,7 @@ header{
     width: 800px;
     overflow: hidden;
 }
+
 .content-sliderbox li{
     width: 400px;
     height: 550px;
@@ -217,3 +232,43 @@ header{
     border-radius: 5%;
 }
 
+.live{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/03.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.live-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 85%;
+}
+
+.video-content{
+    width: 945px;
+    height: 600px;
+}
+
+.video-content .video{
+    width: 800px;
+    height: 600px;
+}
+
+.video-content .video iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.videoconetent-text{
+    color: var(--whtie-color);
+    font-size: 26px;
+    line-height: 45px;
+    text-align: right;
+}
