@@ -40,6 +40,12 @@ img{
     font-family: 'Black Han Sans';
 }
 
+.sub-title{
+    font-size: 46px;
+    padding-bottom: 40px;
+    font-weight: 900;
+}
+
 .content-title{
     font-size: 42px;
     color: var(--whtie-color);
@@ -54,26 +60,31 @@ img{
 }
 
 .button{
-    width: 240px;
-    height: 72px;
+    width: 200px;
+    height: 60px;
     border: 3px solid var(--main-color);
     border-radius: 50px;
     text-align: center;
-    line-height: 75px;
+    line-height: 60px;
     margin-top: 30px;
 }
 
 .button a{
-    width: 240px;
-    height: 72px;
+    width: 200px;
+    height: 60px;
     display: block;
     color: var(--main-color);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
 }
 
 .button:hover{
-    background-color: #ecececa5;
+    background-color: #FCA600;
+    transition: 0.8s;
+}
+
+.button:hover a{
+    color:var(--whtie-color);
     transition: 0.8s;
 }
 
@@ -84,15 +95,17 @@ header{
     display: flex;
     align-items: center;
     z-index: 2;
+
 }
 
 .header-inner{
-    width: 1465px;
+    width: 1472px;
     height: 40px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .header-inner .nav{
@@ -125,7 +138,7 @@ header{
 .main .content01 video{
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
 }
 
@@ -142,26 +155,30 @@ header{
     height: 100vh;
     background-image: url(img/01.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.sub-title{
-    font-size: 50px;
-    padding-bottom: 45px;
-    font-weight: 900;
+    background-size: 100%, 100%;
+    background-position-x: center;
 }
 
 .community .community-inner{
-    position: absolute;
-    top: 40%;
-    left: 10%;
+    width: 1472px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.community .community-content{
+    width: 1472px;
+    height: auto;
     color: var(--whtie-color);
+    position: absolute;
+    left: 0;
+    top: 40%;
 }
 
 .community .community-inner p{
-    font-size: 32px;
-    line-height: 55px;
+    font-size: 28px;
+    line-height: 50px;
 }
 
 .sharing{
@@ -169,21 +186,30 @@ header{
     height: 100vh;
     background-image: url(img/02.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    background-size: 100%, 100%;
+    background-position-x: center;
 }
 
 .sharing .sharing-inner{
-    position: absolute;
-    top: 40%;
-    right: 10%;
+    width: 1472px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.sharing .sharing-content{
+    width: 1472px;
+    height: auto;
     color: var(--whtie-color);
+    position: absolute;
+    right: 0;
+    top: 40%;
+    text-align: right;
 }
 
 .sharing .sharing-inner p{
-    font-size: 32px;
-    line-height: 55px;
-    text-align: right;
+    font-size: 28px;
+    line-height: 50px;
 }
 
 .popular{
@@ -191,23 +217,26 @@ header{
     height: 100vh;
     background-image: url(img/03.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
+    background-size: 100%, 100%;
+    background-position-x: center;
+    overflow: hidden;
 }
 
 .popular-inner{
+    width: 1472px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.popular-inner .popular-content{
+    width: 1472px;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
 }
 
 .content-text{
-    padding-left: 100px;
-}
-
-.content-text p{
+    flex-shrink: 0;
     color: var(--whtie-color);
     font-size: 26px;
     line-height: 45px;
@@ -226,13 +255,12 @@ header{
 .content-slider{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .content-sliderbox{
     display: flex;
-    width: 800px;
-    overflow: hidden;
+    width: 700px;
 }
 
 .content-sliderbox li{
@@ -249,20 +277,20 @@ header{
 .content-buttons{
     display: flex;
     justify-content: space-between;
-    width: 160px;
-    padding-right: 40px;
+    width: 150px;
+    padding-right:25px;
 }
 
 .content-buttons div{
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    border: 3.2px solid var(--main-color);
+    border: 3px solid var(--main-color);
 }
 
 .content-buttons div:hover{
-    background-color: #ecececa5;;
+    background-color: #6666;
     transition: 0.8s;
 }
 
@@ -272,11 +300,11 @@ header{
 
 .content-buttons .left::after{
     position: absolute;
-    left: 18px; 
-    top: 15px;
+    left: 16px; 
+    top: 14px;
     content: '';
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     border-top: 4px solid var(--main-color);
     border-right: 4px solid var(--main-color);
     transform: rotate(225deg);
@@ -288,11 +316,11 @@ header{
 
 .content-buttons .rigth::after{
     position: absolute;
-    left: 13px; 
-    top: 15px;
+    left: 11px; 
+    top: 14px;
     content: '';
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     border-top: 4px solid var(--main-color);
     border-right: 4px solid var(--main-color);
     transform: rotate(45deg);
@@ -303,18 +331,20 @@ header{
     height: 100vh;
     background-image: url(img/03.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
+    background-size: 100%, 100%;
+    background-position-x: center;
 }
 
 .live-inner{
+    width: 1472px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.live-content{
+    width: 1472px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
-    width: 88%;
 }
 
 .video-content{
@@ -395,17 +425,13 @@ header{
     margin-top: 30px;
 }
 
-.makecontent-text .button:hover{
-    background-color: var(--main-color);
-    transition: 0.8s;
-}
 
-.makecontent-text .button:hover a{
-    color:var(--whtie-color);
-    transition: 0.8s;
+.content-listbox{
+    overflow: hidden;
 }
 
 .content-list{
+    width: 4000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -415,7 +441,6 @@ header{
 .content-list li{
     width: 288px;
     height: 387px;
-    padding-left: 50px;
 }
 
 .content-list li img{
@@ -426,10 +451,10 @@ header{
 
 footer{
     width: 100%;
-    height: 80px;
+    height: 60px;
     background-color: #161616;
     color: #CCCCCC;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .footer-inner{
