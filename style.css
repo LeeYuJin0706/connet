@@ -79,7 +79,7 @@ img{
 }
 
 .button:hover{
-    background-color: #FCA600;
+    background-color:var(--main-color);
     transition: 0.8s;
 }
 
@@ -129,13 +129,10 @@ header{
     width: 100%;
     height: 100vh;
     margin: 0 auto;
+    overflow: hidden;
 }
 
-.main .content01{
-    height: 1080px;
-}
-
-.main .content01 video{
+.main video{
     position: relative;
     width: 100%;
     height: 100vh;
@@ -143,9 +140,10 @@ header{
 }
 
 .main .content01 p{
+    width: 100%;
     position: absolute;
     top: 45%;
-    right: 35%;
+    text-align: center;
     color: white;
     font-size: 60px;
 }
@@ -290,7 +288,7 @@ header{
 }
 
 .content-buttons div:hover{
-    background-color: #6666;
+    background-color: var(--main-color);
     transition: 0.8s;
 }
 
@@ -326,6 +324,10 @@ header{
     transform: rotate(45deg);
 }
 
+.content-buttons::after:hover{
+    color:var(--whtie-color);
+}
+
 .live{
     width: 100%;
     height: 100vh;
@@ -339,23 +341,25 @@ header{
     width: 1472px;
     height: 100%;
     margin: 0 auto;
+    display: flex;
 }
 
 .live-content{
     width: 1472px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .video-content{
-    width: 945px;
-    height: 600px;
+    width: 700px;
+    height: 500px;
     position: relative;
 }
 
 .video-content .video iframe{
-    width: 800px;
-    height: 600px;
+    width: 700px;
+    height: 500px;
     border-radius: 25px;
 }
 
@@ -363,8 +367,8 @@ header{
     width: 290px;
     height: 440px;
     position: absolute;
-    right: -4%;
-    top: 13%;
+    right: -25%;
+    top: 7%;
 }
 
 .balloonword li{
@@ -394,23 +398,28 @@ header{
     height: 100vh;
     background-image: url(img/03.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%, 100%;
+    background-position-x: center;
+    overflow: hidden;
 }
 
 .make-inner{
-    width: 100%;
+    width: 1472px;
     height: 100%;
     margin: 0 auto;
 }
 
-.ex{
-    padding-top: 230px;
+.make-content{
+    width: 1472px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .makecontent-text{
-    width: 940px;
-    display: block;
-    margin: 0 auto;
+    width: 100%;
     text-align: center;
 }
 
@@ -424,7 +433,6 @@ header{
     margin: 0 auto;
     margin-top: 30px;
 }
-
 
 .content-listbox{
     overflow: hidden;
@@ -461,7 +469,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 1472px;
     height: 100%;
     margin: 0 auto;
 }
