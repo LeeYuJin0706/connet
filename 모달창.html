@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #00000022;
+        }
+        .modal-overlay{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: #00000050;
+        }
+        .modal-window{
+            background-color: white;
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            padding: 16px;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .modal-window h3 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .exit {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+
+        }
+        .exit > span {
+            display: block;
+            top: 50%;
+            background-color: gray;
+            width: 16px;
+            height: 1px;
+            position: absolute;
+            transition: 0.5s;
+        }
+
+        .exit:hover > span {
+            background-color: orange;
+        }
+
+        .exit > span:nth-child(1){
+            transform: rotate(45deg);
+        }
+        .exit > span:nth-child(2){
+            transform: rotate(-45deg);
+
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <button class="modal-button">모달창 띄우기</button>
+    <div class="modal-overlay">
+        <div class="modal-window">
+            <div class="exit">
+                <span></span><span></span>
+            </div>
+            <h3>모달창</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
+    <script>
+        const modalBtn = document.querySelector('.modal-button');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalExit = document.querySelector('.exit');
+        modalBtn.addEventListener('click', modalOn);
+        modalExit.addEventListener('click', modalOff);
+       
+        modalOff();
+        modalOverlay.addEventListener('click', e => {
+            const target = e.target;
+            if (target.classList.contains('modal-overlay')){
+                modalOff();
+            }
+        });
+        window.addEventListener('keyup',e =>{
+            console.log(e.key);
+            console.log(modalOverlay.style.display);   
+            if( modalOverlay.style.display ==='flex' && e.key === 'Escape')
+                modalOff();
+
+            if(modalOverlay.style.display === 'none' && (e.key === 'm' || e.key === 'M')){
+                modalOn();
+            }
+        })
+        console.log(modalOverlay.classList.contains('modal-overlay'));
+        console.log(modalOverlay.classList.contains('exit'));
+        function modalOn(){
+            modalOverlay.style.display = 'flex';
+        } 
+        function modalOff(){
+            modalOverlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
