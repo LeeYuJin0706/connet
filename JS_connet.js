@@ -28,18 +28,54 @@ function searchOff(){
 }
 // ㅡㅡㅡㅡㅡㅡㅡ 모달창 ㅡㅡㅡㅡㅡㅡ //
 
+
+
 // ㅡㅡㅡㅡㅡㅡㅡ 메인 슬라이드 ㅡㅡㅡㅡㅡㅡ //
+let index = 1;
+let moveCheck = true;
 const slideList = document.querySelector('.slide-list');
 const slideContents = document.querySelectorAll('.slide-content');
-const pagination = document.querySelector('.slide-pagination');
-const slidLen = slideContents.length;
-const slideWidth = 1920;
-const slideSpeed = 300
+const sliderLength = slideContents.length; 
+
+let copyFirst = slideList.firstElementChild.cloneNode(true);
+let copyLast = slideList.lastElementChild.cloneNode(true);
+
+slideList.appendChild(copyFirst);
+slideList.insertBefore(copyLast, slideList.firstElementChild);
 
 
-slideList.style.width = slideWidth * (slidLen) + "px";
+slideList.style.width = 100 * (sliderLength + 2) + "vw";
+slideList.style.transform = "translateX(-" + 100 * (index) + "vw)";
 
-let curIndex = 0;
+let slideRoundButtons = document.querySelectorAll('.round-button');
+for(let i = 0; i < slideRoundButtons.length; i ++){
+    slideRoundButtons[i].buttonIndex = i + 1;
+    slideRoundButtons[i].addEventListener('click',buttonClick)
+}
 
+slideRoundButtons[index-1].style.backgroundColor = 'orange';
 
+function buttonClick(){
+    if(moveCheck){
+        moveCheck = false;
+        clearButtno();
+        this.style.backgroundColor = "orange";
+        index = this.buttonIndex;
+        moveSlide(2000);
+        setTimeout(function(){
+            moveCheck = true;
+        }, 1000);
+    }
+}
 
+function moveSlide(time){
+    slideList.style.transition = time + 'ms';
+    slideList.style.transform = "translateX(-" + 100*(index) + "vw)";
+}
+
+function clearButtno(){
+    for(let i = 0; i < slideRoundButtons.length; i++){
+        slideRoundButtons[i].style.backgroundColor = ''
+    }
+}
+// ㅡㅡㅡㅡㅡㅡㅡ 메인 슬라이드 ㅡㅡㅡㅡㅡㅡ //

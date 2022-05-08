@@ -274,6 +274,27 @@ header{
     font-size: 60px;
 }
 
+.buttons{
+    position:absolute;
+    top: 50%;
+    right: 10%;
+}
+
+.radio-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.round-button{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 30px;
+    background-color: var(--whtie-color);
+    cursor: pointer;
+}
+
 .community{
     background-image: url(img/01.jpg);
 }
