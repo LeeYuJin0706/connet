@@ -28,24 +28,25 @@ function searchOff(){
 }
 // ㅡㅡㅡㅡㅡㅡㅡ 모달창 ㅡㅡㅡㅡㅡㅡ //
 
-
+mainSlide();
 
 // ㅡㅡㅡㅡㅡㅡㅡ 메인 슬라이드 ㅡㅡㅡㅡㅡㅡ //
-let index = 1;
-let moveCheck = true;
-const slideList = document.querySelector('.slide-list');
-const slideContents = document.querySelectorAll('.slide-content');
-const sliderLength = slideContents.length; 
+function mainSlide(){
+    let index = 1;
+    let moveCheck = true;
+    const slideList = document.querySelector('.slide-list');
+    const slideContents = document.querySelectorAll('.slide-content');
+    const sliderLength = slideContents.length; 
 
-let copyFirst = slideList.firstElementChild.cloneNode(true);
-let copyLast = slideList.lastElementChild.cloneNode(true);
+    let copyFirst = slideList.firstElementChild.cloneNode(true);
+    let copyLast = slideList.lastElementChild.cloneNode(true);
+    
+    slideList.appendChild(copyFirst);
+    slideList.insertBefore(copyLast, slideList.firstElementChild);
 
-slideList.appendChild(copyFirst);
-slideList.insertBefore(copyLast, slideList.firstElementChild);
-
-
-slideList.style.width = 100 * (sliderLength + 2) + "vw";
-slideList.style.transform = "translateX(-" + 100 * (index) + "vw)";
+    
+    slideList.style.width = 100 * (sliderLength + 2) + "vw";
+    slideList.style.transform = "translateX(-" + 100 * (index) + "vw)";
 
 let slideRoundButtons = document.querySelectorAll('.round-button');
 for(let i = 0; i < slideRoundButtons.length; i ++){
@@ -55,17 +56,35 @@ for(let i = 0; i < slideRoundButtons.length; i ++){
 
 slideRoundButtons[index-1].style.backgroundColor = 'orange';
 
+setInterval(() => {
+    next();
+}, 5000);
+
+
 function buttonClick(){
     if(moveCheck){
         moveCheck = false;
-        clearButtno();
-        this.style.backgroundColor = "orange";
         index = this.buttonIndex;
-        moveSlide(2000);
+        setButton();
+        moveSlide(1500);
         setTimeout(function(){
             moveCheck = true;
         }, 1000);
     }
+    
+}
+
+function next() {
+    index++;
+    setButton();
+    moveSlide(1000);
+    
+    setTimeout(function(){
+        if(index === sliderLength+1){
+            index = 1;
+            moveSlide(0);
+        }
+    }, 1000)
 }
 
 function moveSlide(time){
@@ -73,9 +92,44 @@ function moveSlide(time){
     slideList.style.transform = "translateX(-" + 100*(index) + "vw)";
 }
 
-function clearButtno(){
+function setButton(){
     for(let i = 0; i < slideRoundButtons.length; i++){
         slideRoundButtons[i].style.backgroundColor = ''
     }
+    if(index<4)
+    slideRoundButtons[index-1].style.backgroundColor = 'orange'
+    else{
+        slideRoundButtons[0].style.backgroundColor='orange';
+    }
+}
 }
 // ㅡㅡㅡㅡㅡㅡㅡ 메인 슬라이드 ㅡㅡㅡㅡㅡㅡ //
+
+// ㅡㅡㅡㅡㅡㅡㅡ 원페이지 ㅡㅡㅡㅡㅡㅡ //
+
+var mHtml = $("html");
+var page = 1;
+
+
+mHtml.animate({scrollTop : 0},10);
+
+$(window).on("wheel", function(e) {
+    if(mHtml.is(":animated")) return;
+    if(e.originalEvent.deltaY > 0) {
+        if(page == 4) return;
+        page++;
+    } else if(e.originalEvent.deltaY < 0) {
+        if(page == 1) return;
+        page--;
+    }
+    var posTop =(page-1) * $(window).height();
+    mHtml.animate({scrollTop : posTop});
+})
+
+// ㅡㅡㅡㅡㅡㅡㅡ 원페이지 ㅡㅡㅡㅡㅡㅡ //
+
+// ㅡㅡㅡㅡㅡㅡㅡ 컨텐츠 슬라이드 ㅡㅡㅡㅡㅡㅡ //
+
+
+
+
